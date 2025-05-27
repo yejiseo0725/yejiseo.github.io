@@ -620,10 +620,8 @@ ul.workList-personal li a {
 }
 
 ul.workList-personal .imgBox {
-  border: 2px solid teal;
-
   width: 700px;
-  height: 400px;
+  height: 360px;
   margin: 0;
   padding: 0;
 }
@@ -631,7 +629,7 @@ ul.workList-personal .imgBox img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 ul.workList-personal .textBox {
