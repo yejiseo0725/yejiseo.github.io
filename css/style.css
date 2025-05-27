@@ -599,24 +599,43 @@ nav.gnb ul li a:hover .char::after {
 }
 
 .work-title-wrap {
-  margin-bottom: 70px;
-}
-.work-title-wrap h3 {
-  font-weight: 600;
-  font-size: 3.5rem;
-  line-height: 1.3;
-}
-.work-title-wrap h3 span {
-  display: block;
+  font-size: 7rem;
   font-weight: 500;
-  font-size: 1.7rem;
-  font-style: italic;
-  color: var(--gray-color);
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 70px;
+
+  border: 1px solid teal;
+}
+.work-title-wrap p.b {
+  font-size: 8rem;
+  font-weight: 400;
 }
 
-.workList ul {
+ul.workList-personal {
 }
-.workList ul li {
+ul.workList-personal li {
+}
+ul.workList-personal li a {
+}
+
+ul.workList-personal .imgBox {
+}
+ul.workList-personal .imgBox img {
+}
+
+ul.workList-personal .textBox {
+}
+ul.workList-personal .textBox h3 {
+}
+ul.workList-personal .textBox .info {
+}
+ul.workList-personal .textBox .info p {
+}
+
+.workList ul.workList-company {
+}
+.workList ul.workList-company li {
   position: relative;
   overflow: hidden;
 
@@ -630,7 +649,7 @@ nav.gnb ul li a:hover .char::after {
   z-index: 1;
   transition: 0.5s;
 }
-.workList ul li::before {
+.workList ul.workList-company li::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -642,12 +661,12 @@ nav.gnb ul li a:hover .char::after {
   transition: height 0.25s ease-in;
 }
 
-.workList ul li .li-wrap {
+.workList ul.workList-company li .li-wrap {
   position: absolute;
   z-index: 1;
 }
 
-.workList ul li .fadeImg {
+.workList ul.workList-company li .fadeImg {
   position: fixed;
   top: 0;
   left: 0;
@@ -656,7 +675,7 @@ nav.gnb ul li a:hover .char::after {
   opacity: 0;
 }
 
-.workList ul li span {
+.workList ul.workList-company li span {
   display: inline-block;
   padding: 5px 8px;
   box-sizing: border-box;
@@ -664,16 +683,16 @@ nav.gnb ul li a:hover .char::after {
   color: var(--primary-color);
   background-color: var(--bg-color);
   margin-right: 7px;
-  transition: ;
+  transition: 0.2s;
 }
 
-.workList ul li p.li-title {
+.workList ul.workList-company li p.li-title {
   font-size: 4rem;
   font-weight: 600;
   margin-bottom: 16px;
   color: var(--font-color);
 }
-.workList ul li p.li-info {
+.workList ul.workList-company li p.li-info {
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.7;
@@ -681,7 +700,7 @@ nav.gnb ul li a:hover .char::after {
   margin-bottom: 26px;
 }
 
-.workList ul li a {
+.workList ul.workList-company li a {
   font-weight: 500;
   font-size: 1.1rem;
   color: var(--primary-color);
@@ -692,29 +711,29 @@ nav.gnb ul li a:hover .char::after {
   margin-right: 5px;
   transition: 0.2s;
 }
-.workList ul li a.go {
+.workList ul.workList-company li a.go {
   background-color: var(--primary-color);
   color: #fff;
   border: 2px solid transparent;
 }
 
-.workList ul li:hover::before {
+.workList ul.workList-company li:hover::before {
   height: 100%;
   transition: height 0.25s ease-out;
 }
-.workList ul li:hover {
+.workList ul.workList-company li:hover {
   height: 430px;
   background-color: var(--primary-color);
 }
-.workList ul li:hover span {
+.workList ul.workList-company li:hover span {
   color: var(--font-color);
 }
 
-.workList ul li:hover a {
+.workList ul.workList-company li:hover a {
   color: #fff;
   border: 2px solid #fff;
 }
-.workList ul li:hover a.go {
+.workList ul.workList-company li:hover a.go {
   background-color: #fff;
   color: var(--primary-color);
 }

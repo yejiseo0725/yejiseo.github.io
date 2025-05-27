@@ -189,37 +189,38 @@ gsap.fromTo(
   }
 );
 
-// workList
-// gsap.registerPlugin(ScrollTrigger);
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".workList",
+      start: "0% 100%",
+      end: "0% 20%",
+      scrub: 1,
+      markers: true,
+    },
+  })
 
-// let activeImg;
-
-// gsap.utils.toArray(".workList ul li").forEach((elem) => {
-//   let image = elem.querySelector("img.fadeImg"),
-//     align = (e) => {
-//       setX(e.clientX);
-//       setY(e.clientY);
-//     },
-//     startPoint = () => document.addEventListener("mousemove", align),
-//     stopPoint = () => document.removeEventListener("mousemove", align),
-//     fade = gsap.to(image, { autoAlpha: 1, ease: "none", paused: true });
-
-//   elem.addEventListener("mouseenter", (e) => {
-//     fade.play();
-//     startPoint();
-
-//     if (activeImg) {
-//       gsap.set(image, {
-//         x: gsap.getProperty(activeImg, "x"),
-//         y: gsap.getProperty(activeImg, "y"),
-//       });
-//     }
-//     activeImg = image;
-//     setX = gsap.quickTo(image, "x", { duration: 0.5, ease: Elastic });
-//     setY = gsap.quickTo(image, "y", { duration: 0.5, ease: Elastic });
-
-//     align(e);
-//   });
-
-//   elem.addEventListener("mouseleave", () => fade.reverse());
-// });
+  .fromTo(
+    ".work-title-wrap .a",
+    {
+      x: "-100%",
+    },
+    {
+      x: "0%",
+      ease: "none",
+      duration: 5,
+    },
+    0
+  )
+  .fromTo(
+    ".work-title-wrap .b",
+    {
+      x: "100%",
+    },
+    {
+      x: "0%",
+      ease: "none",
+      duration: 5,
+    },
+    0
+  );
