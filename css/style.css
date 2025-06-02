@@ -910,6 +910,19 @@ footer small {
   }
 }
 
+@media (max-width: 800px) {
+  ul.workList-personal {
+    flex-direction: column;
+  }
+  ul.workList-personal li {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  ul.workList-personal .imgBox {
+    height: 330px;
+  }
+}
+
 @media (max-width: 630px) {
   header {
     width: 80%;
