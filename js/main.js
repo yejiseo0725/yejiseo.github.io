@@ -182,7 +182,10 @@ $(".accordion ul li .acc-title").on("click", function () {
       // 슬라이드 완료 후 애니메이션 클래스 추가
       desc.addClass("animate-in");
       li.addClass("open");
-      ScrollTrigger.refresh();
+
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
     });
   }
 });
