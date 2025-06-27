@@ -23,11 +23,27 @@ caption {
   padding: 0;
   border: 0;
 }
+div,
+span,
+article,
+section,
+header,
+footer,
+p,
+ul,
+li,
+fieldset,
+legend,
+label,
+a,
+nav {
+  box-sizing: border-box;
+}
 
+/* interactive web 만들 때 수월하게: html, body: height 100% */
 html {
   height: 100%;
 }
-
 body {
   min-height: 100%;
 }
@@ -117,7 +133,6 @@ video {
   padding: 0;
   border: 0;
 }
-
 article,
 aside,
 details,
@@ -131,16 +146,18 @@ nav,
 section {
   display: block;
 }
-
 ol,
 ul {
   list-style: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 a {
-  text-decoration: none;
+  color: inherit;
+  text-decoration: inherit;
+}
+img {
+  vertical-align: middle;
 }

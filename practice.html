@@ -3,127 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Scroll Shake</title>
-    <style>
-        body {
-            height: 3000px;
-            margin: 0;
-            background: #000;
-        }
-
-        .floating-box {
-            position: fixed;
-            top: 100px;
-            left: 50px;
-            width: 200px;
-            height: 100px;
-            background: tomato;
-            color: white;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            will-change: transform;
-        }
-
-        /* text coloring animation */
-        .textBox {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-top: 400px;
-        }
-
-        .textBox .mask {
-            display: block;
-        }
-
-        .textBox .mask .text {
-            -webkit-text-fill-color: rgba(255, 255, 255, 0.2);
-            -webkit-background-clip: text;
-            background-repeat: no-repeat;
-            background-image: linear-gradient(#fff, #fff);
-            background-size: 0% 100%;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
 
-    <div class="textBox">
-        <span class="mask">
-            <span class="text">
-                Hanzo is a bold, high-converting agency website<br>
-                template for solopreneurs running productized services.<br>
-                Launch fast<br>
-                and turn visitors into clients —<br>
-                without design headaches.<br>
-                Built for speed, clarity, and growth.<br>
-                Hanzo is a bold, high-converting agency website<br>
-                template for solopreneurs running productized services.<br>
-            </span>
-        </span>
-    </div>
-
-
-    <!-- <div class="floating-box">🔥 흔들리는 박스</div> -->
-
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script src="./js/plugin/splitting.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
-    <script src='https://unpkg.com/gsap/dist/Observer.min.js'></script>
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.fromTo('.textBox .mask span', {
-            'background-size': '0% 100%'
-        }, {
-            'background-size': '100% 100%',
-            scrollTrigger: {
-                trigger: '.textBox',
-                pinnedContainer: '.textBox',
-                start: '0% 60%',
-                end: '20% 60%',
-                markers: true,
-                scrub: 1,
-            }
-        })
-    </script>
-
-    <script>
-        const box = document.querySelector('.floating-box');
-        let scrollY = window.scrollY;
-        let prevScrollY = scrollY;
-        let offsetY = 0;      // 현재 박스 위치
-        let targetOffsetY = 0; // 목표 위치
-        const ease = 0.1;      // 부드럽게 따라가는 정도
-        const maxOffset = 30;  // 최대 이동 거리 (±30px)
-
-        function animate() {
-            // 스크롤 변화량 계산
-            scrollY = window.scrollY;
-            const delta = scrollY - prevScrollY;
-
-            // 스크롤 변화가 있을 때만 목표 위치를 약간 움직임
-            targetOffsetY = delta * 1.5; // 반응 강도 조절
-            targetOffsetY = Math.max(-maxOffset, Math.min(maxOffset, targetOffsetY));
-
-            // 현재 위치가 목표 위치를 부드럽게 따라가게 하기
-            offsetY += (targetOffsetY - offsetY) * ease;
-
-            // 적용
-            box.style.transform = `translateY(${offsetY}px)`;
-
-            // 현재 스크롤 저장
-            prevScrollY = scrollY;
-
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-    </script>
 </body>
 
 </html>

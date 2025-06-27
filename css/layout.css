@@ -1,0 +1,115 @@
+@import url("https://fonts.cdnfonts.com/css/ss-magnolia");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap");
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 900;
+  font-display: swap;
+  src: local("Pretendard Black"),
+    url(./woff2-subset/Pretendard-Black.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-Black.subset.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-display: swap;
+  src: local("Pretendard ExtraBold"),
+    url(./woff2-subset/Pretendard-ExtraBold.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-ExtraBold.subset.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Pretendard Bold"),
+    url(./woff2-subset/Pretendard-Bold.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-Bold.subset.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-display: swap;
+  src: local("Pretendard SemiBold"),
+    url(./woff2-subset/Pretendard-SemiBold.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-SemiBold.subset.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-display: swap;
+  src: local("Pretendard Medium"),
+    url(./woff2-subset/Pretendard-Medium.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-Medium.subset.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src: local("Pretendard Regular"),
+    url(./woff2-subset/Pretendard-Regular.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-Regular.subset.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 300;
+  font-display: swap;
+  src: local("Pretendard Light"),
+    url(./woff2-subset/Pretendard-Light.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-Light.subset.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 200;
+  font-display: swap;
+  src: local("Pretendard ExtraLight"),
+    url(./woff2-subset/Pretendard-ExtraLight.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-ExtraLight.subset.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 100;
+  font-display: swap;
+  src: local("Pretendard Thin"),
+    url(./woff2-subset/Pretendard-Thin.subset.woff2) format("woff2"),
+    url(./woff-subset/Pretendard-Thin.subset.woff) format("woff");
+}
+
+:root {
+  --font-color: #333;
+  --font-color-w: #fff;
+  --main-color: #001429;
+  --yellow: #ffdb58;
+  --orange: #fc6a03;
+  --blue: #00a8fb;
+  --purple: #a65cd0;
+  --dark-gray: #888;
+}
+
+::selection {
+  background-color: var(--yellow);
+  color: var(--font-color);
+}
+
+.en {
+  font-family: "SS Magnolia", sans-serif;
+}
+
+.en2 {
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.en3 {
+  font-family: "Patrick Hand SC", cursive;
+  font-weight: 400;
+  font-style: normal;
+}

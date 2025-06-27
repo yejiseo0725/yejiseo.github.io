@@ -1,1 +1,1 @@
-# yejiseo.github.io
+# Yeji_Portfolio-2025
