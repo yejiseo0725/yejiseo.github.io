@@ -38,6 +38,7 @@ header {
   will-change: transfrom, opacity;
 }
 header .inner {
+  width: 100%;
   padding: 15px 2rem;
   box-sizing: border-box;
 }
@@ -46,6 +47,7 @@ header .gnb {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
 header .gnb .gnb-logo {
 }
@@ -106,6 +108,7 @@ body.light-header header .gnb ul li:last-child a:hover {
   height: 100vh;
   box-sizing: border-box;
   background-color: var(--main-color);
+  overflow-x: hidden;
 }
 .visual .inner {
   display: flex;
@@ -179,6 +182,7 @@ body.light-header header .gnb ul li:last-child a:hover {
 .visual.animate-in h1 span.title em {
   transform: scale(1) skewX(0);
   opacity: 1;
+  max-width: 100%;
 }
 
 .visual.animate-in h1 span.title em {
@@ -294,11 +298,11 @@ body.light-header header .gnb ul li:last-child a:hover {
 
 /* section 1 */
 .sc1 {
-  /* margin-top: 100px; */
   box-sizing: border-box;
   background-color: var(--font-color-w);
   position: relative;
   margin-top: 300px;
+  overflow: hidden;
 }
 
 .half-circle-wrap {
@@ -486,6 +490,8 @@ body.light-header header .gnb ul li:last-child a:hover {
 }
 
 .accordion {
+  max-width: 900px;
+  box-sizing: border-box;
   margin: 80px auto 60px;
 }
 .accordion ul {
@@ -547,6 +553,9 @@ body.light-header header .gnb ul li:last-child a:hover {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease;
+  overflow-x: hidden;
+  max-width: 200%;
+  word-break: break-word;
 }
 .accordion ul li .acc-desc.animate-in {
   opacity: 1;
@@ -661,6 +670,7 @@ body.light-header header .gnb ul li:last-child a:hover {
 }
 
 .h3-wrap {
+  overflow: hidden;
   margin: 0 auto 100px;
 }
 .h3-wrap h3 {
@@ -1088,6 +1098,28 @@ footer small {
 @media (max-width: 1300px) {
   .inner {
     max-width: 1000px;
+    width: 1000px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  header {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  header .inner {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .visual {
+  }
+  .visual .inner {
+    max-width: 1300px;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .visual h1 span.title em {
@@ -1118,5 +1150,69 @@ footer small {
 
   ul.workExp li a h4 {
     font-size: 4.3rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .visual {
+    width: 1000px;
+    max-width: 1000px;
+  }
+  .visual .inner {
+    width: 1000px;
+    max-width: 1000px;
+  }
+
+  header .inner {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .img-slider {
+    width: 150px;
+    height: 80px;
+  }
+
+  .visual h1 span.title em {
+    font-size: 6rem;
+  }
+  .visual .visual-text {
+    margin-left: 35%;
+    margin-top: 5px;
+  }
+  .visual h1 span b,
+  .visual .visual-text b {
+    width: 65px;
+    height: 65px;
+  }
+  .visual.animate-in p {
+    font-size: 0.8rem;
+  }
+
+  .sc1 .my-info h2 {
+    padding: 3px 20px;
+  }
+  .sc1 .my-info span {
+    font-size: 1.5rem;
+  }
+
+  ul.workExp li a span {
+    opacity: 1;
+  }
+
+  .contact,
+  footer {
+    width: 98%;
+    margin: 0 auto;
+  }
+  .contact .inner {
+    padding: 0 4rem;
+    box-sizing: border-box;
+  }
+
+  footer .inner {
+    width: 100%;
+    padding: 20px 4rem;
+    box-sizing: border-box;
   }
 }
