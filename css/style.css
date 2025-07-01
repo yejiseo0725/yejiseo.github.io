@@ -424,7 +424,7 @@ body.light-header header .gnb ul li:last-child a:hover {
   content: "Drag Me!";
   position: absolute;
   left: 50%;
-  top: -7rem;
+  top: -9rem;
   transform: translateX(-50%);
   font-family: "Patrick Hand", cursive;
   font-size: 4rem;
@@ -1004,6 +1004,7 @@ footer h5 {
 }
 footer h5 strong {
   display: block;
+  line-height: 1.1;
 }
 
 .touch-wrap {
@@ -1075,12 +1076,15 @@ footer h6 a:hover img {
 }
 
 .footer-logo-wrap {
-  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
 }
 .footer-logo-wrap a {
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 .footer-logo-wrap a img {
   width: 100%;
@@ -1093,7 +1097,6 @@ footer small {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--font-color);
-  text-align: end;
 }
 
 /* responsive */
