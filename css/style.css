@@ -393,12 +393,10 @@ body.light-header header .gnb ul li:last-child a:hover {
   margin: 0 auto;
 }
 .sc1 .my-info h2 {
-  float: left;
-  display: inline-block;
   font-weight: 700;
-  font-size: 1.2rem;
-  padding: 7px 30px;
+  font-size: 1.4rem;
   margin-top: 5px;
+  margin-bottom: 40px;
   box-sizing: border-box;
 }
 .sc1 .my-info span {
@@ -411,6 +409,14 @@ body.light-header header .gnb ul li:last-child a:hover {
   background-repeat: no-repeat;
   background-image: linear-gradient(#333, #333);
   background-size: 0% 100%;
+}
+.sc1 .my-info p.ko {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #9c9c9c;
+  margin-top: 30px;
 }
 
 .my-skill {
@@ -483,6 +489,10 @@ body.light-header header .gnb ul li:last-child a:hover {
   line-height: 1.6;
   padding-bottom: 1rem;
   box-sizing: border-box;
+}
+
+.slick-slider {
+  background-color: teal;
 }
 
 .slick-arrow,
