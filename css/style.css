@@ -417,15 +417,17 @@ body.light-header header .gnb ul li:last-child a:hover {
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin-top: 150px;
+  margin-top: 280px;
+  margin-bottom: 200px;
 }
 .my-skill::before {
   content: "Drag Me!";
   position: absolute;
-  left: 3.5rem;
-  top: -4.5rem;
+  left: 50%;
+  top: -7rem;
+  transform: translateX(-50%);
   font-family: "Patrick Hand", cursive;
-  font-size: 2.6rem;
+  font-size: 4rem;
 }
 
 .skillSet {
@@ -988,73 +990,79 @@ ul.workExp li.active {
   }
 }
 
-.footer-section {
-  position: relative;
-  height: 480px;
-  bottom: 0;
-  overflow: hidden;
-}
-
-.contact-footer-wrap {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  transform: translateY(150px);
-  will-change: transform, opacity;
-  opacity: 1;
-}
-
 /* section 3 */
-.contact {
-  background-color: var(--blue);
-  padding: 100px 0 60px;
-  border-top-left-radius: 80px;
-  border-top-right-radius: 80px;
+footer {
+  background-color: var(--font-color-w);
+  padding: 80px 0 40px;
 }
-.contact .inner {
+footer .inner {
 }
 
-.contact h5 {
-  font-size: 1.5rem;
+footer h5 {
+  font-weight: 700;
+  font-size: 6rem;
+}
+footer h5 strong {
+  display: block;
+}
+
+.touch-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 60px 0 40px;
+}
+.touch-wrap .touch {
+  /* width: 40%; */
+}
+
+.touch p {
   font-weight: 400;
-  color: var(--font-color-w);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
-.contact h6 {
-  margin-top: 7px;
+.touch em {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
 }
-.contact h6 a {
+
+footer h6 {
+}
+footer h6 a {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
 }
-.contact h6 a::after {
+footer h6 a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: var(--font-color-w);
+  background-color: var(--font-color);
   transition: width 0.4s ease-in-out;
 }
-.contact h6 a:hover::after {
+footer h6 a:hover::after {
   width: 100%;
 }
 
-.contact h6 a strong {
-  font-size: 7rem;
-  margin-right: 20px;
-  color: var(--font-color-w);
+footer h6 a strong {
+  font-size: 4rem;
 }
-.contact h6 a img {
+footer h6 a img {
   display: block;
   width: 80px;
   height: 80px;
   object-fit: cover;
+  margin-left: 15px;
 }
 
-.contact h6 a:hover img {
+footer h6 a:hover img {
   animation: rotate360 1s linear infinite;
 }
 @keyframes rotate360 {
@@ -1066,32 +1074,26 @@ ul.workExp li.active {
   }
 }
 
-/* footer */
-footer {
-  background-color: var(--blue);
+.footer-logo-wrap {
+  margin-top: 15px;
 }
-footer .inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 0 20px;
-  box-sizing: border-box;
+.footer-logo-wrap a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+.footer-logo-wrap a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-footer a {
-  display: block;
-  width: 50px;
-  height: 50px;
-}
-footer a img {
-  display: block;
-  width: 100%;
-  object-fit: contain;
-}
 footer small {
+  display: block;
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--font-color-w);
+  color: var(--font-color);
+  text-align: end;
 }
 
 /* responsive */
@@ -1200,19 +1202,8 @@ footer small {
     opacity: 1;
   }
 
-  .contact,
-  footer {
-    width: 98%;
-    margin: 0 auto;
-  }
-  .contact .inner {
+  .footer .inner {
     padding: 0 4rem;
-    box-sizing: border-box;
-  }
-
-  footer .inner {
-    width: 100%;
-    padding: 20px 4rem;
     box-sizing: border-box;
   }
 }

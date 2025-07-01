@@ -437,17 +437,17 @@ $(function () {
 });
 
 // contact & footer 스크롤에 맞춰 위로 올라오게
-$(function () {
-  gsap.to(".contact-footer-wrap", {
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: ".contact-footer-wrap",
-      start: "top 80%",
-      end: "top 70%",
-      scrub: 1,
-    },
-  });
-});
+// $(function () {
+//   gsap.to(".contact-footer-wrap", {
+//     y: 0,
+//     opacity: 1,
+//     duration: 1,
+//     ease: "power3.out",
+//     scrollTrigger: {
+//       trigger: ".contact-footer-wrap",
+//       start: "top 80%",
+//       end: "top 70%",
+//       scrub: 1,
+//     },
+//   });
+// });
