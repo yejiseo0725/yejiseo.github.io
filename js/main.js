@@ -262,6 +262,22 @@ gsap.fromTo(
   }
 );
 
+// 'Drag me!' GSAP
+$(function () {
+  gsap.to(".drag-label", {
+    scrollTrigger: {
+      trigger: ".my-skill",
+      start: "top 80%", // 뷰포트 80%쯤에 들어왔을 때 시작
+      toggleActions: "play reverse play reverse",
+    },
+    y: 0,
+    opacity: 1,
+    duration: 1,
+    ease: "power2.out",
+  });
+});
+
+// slick-slider
 $(function () {
   $(".my-skill").slick({
     centerMode: true,
@@ -446,7 +462,7 @@ $(function () {
         end: "100% 0%",
         toggleClass: { targets: footer, className: "active" },
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     });
   });

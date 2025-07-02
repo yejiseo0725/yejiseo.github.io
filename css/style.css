@@ -419,26 +419,24 @@ body.light-header header .gnb ul li:last-child a:hover {
   margin-top: 40px;
 }
 
+span.drag-label {
+  display: block;
+  width: 100%;
+  font-family: "Patrick Hand", cursive;
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 160px;
+  margin-bottom: 40px;
+
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
 .my-skill {
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin-top: 280px;
   margin-bottom: 200px;
-}
-.my-skill::before {
-  content: "Drag Me!";
-  position: absolute;
-  left: 50%;
-  top: -9rem;
-  transform: translateX(-50%);
-  font-family: "Patrick Hand", cursive;
-  font-size: 4rem;
-}
-
-.skillSet {
-  margin: 0 30px;
-  box-sizing: border-box;
 }
 
 .skill-card {
@@ -470,7 +468,7 @@ body.light-header header .gnb ul li:last-child a:hover {
 }
 
 .skill-text {
-  width: 80%;
+  width: 70%;
   margin: 40px auto;
   padding-bottom: 1rem;
   box-sizing: border-box;
