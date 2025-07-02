@@ -396,7 +396,7 @@ body.light-header header .gnb ul li:last-child a:hover {
   font-weight: 700;
   font-size: 1.4rem;
   margin-top: 5px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   box-sizing: border-box;
 }
 .sc1 .my-info span {
@@ -416,7 +416,7 @@ body.light-header header .gnb ul li:last-child a:hover {
   font-size: 1.2rem;
   line-height: 2;
   color: #9c9c9c;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .my-skill {
@@ -455,7 +455,6 @@ body.light-header header .gnb ul li:last-child a:hover {
   overflow: hidden;
 }
 .skill-card .skill-card-img {
-  /* border: 2px solid tan; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -471,7 +470,8 @@ body.light-header header .gnb ul li:last-child a:hover {
 }
 
 .skill-text {
-  margin-top: 40px;
+  width: 80%;
+  margin: 40px auto;
   padding-bottom: 1rem;
   box-sizing: border-box;
 }
@@ -492,7 +492,6 @@ body.light-header header .gnb ul li:last-child a:hover {
 }
 
 .slick-slider {
-  background-color: teal;
 }
 
 .slick-arrow,
@@ -1015,6 +1014,15 @@ footer h5 {
 footer h5 strong {
   display: block;
   line-height: 1.1;
+
+  margin: 50px 0;
+  transition: all 0.8s ease;
+  opacity: 0;
+}
+/* footer h5 active */
+footer h5.active strong {
+  margin: 0;
+  opacity: 1;
 }
 
 .touch-wrap {
@@ -1024,7 +1032,6 @@ footer h5 strong {
   margin: 60px 0 40px;
 }
 .touch-wrap .touch {
-  /* width: 40%; */
 }
 
 .touch p {
