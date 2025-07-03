@@ -203,9 +203,7 @@ body.light-header header .gnb ul li:last-child a:hover {
 }
 
 .slider-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative; /* 기존 absolute → relative */
   width: 100%;
   height: 100%;
   transition: transform 0.6s ease;
@@ -213,9 +211,13 @@ body.light-header header .gnb ul li:last-child a:hover {
 
 .slider-inner img {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.6s ease;
 }
 
 .visual.motion .img-slider {
@@ -752,7 +754,7 @@ ul.workList li a.workImg:hover::after {
 ul.workList li .img-box {
   position: relative;
   width: 65%;
-  height: 400px;
+  height: 500px;
   object-fit: cover;
   padding: 40px;
   box-sizing: border-box;

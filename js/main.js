@@ -135,8 +135,9 @@ gsap.ticker.add(() => {
 });
 
 // visual img 1초마다 변경
+// 1. 전역 함수 정의
 function setupImageSlider(sliderEl) {
-  const imageIndexes = sliderEl.dataset.images.split(","); // ["4", "5", "6"]
+  const imageIndexes = sliderEl.dataset.images.split(","); // 예: "1,2,3"
   let currentIndex = 0;
   const inner = sliderEl.querySelector(".slider-inner");
 
@@ -146,48 +147,30 @@ function setupImageSlider(sliderEl) {
     newImg.src = `./images/img${imageIndexes[currentIndex]}.jpg`;
     newImg.alt = "yeji-pics";
 
-    // 기존 이미지 위로 밀고, 새 이미지 아래에 추가
+    newImg.style.opacity = 0;
+    newImg.style.transition = "opacity 0.6s ease";
     inner.appendChild(newImg);
 
-    // 전환 후 처리
+    requestAnimationFrame(() => {
+      newImg.style.opacity = 1;
+    });
+
     setTimeout(() => {
       const imgs = inner.querySelectorAll("img");
       if (imgs.length > 1) {
-        imgs[0].remove(); // 위로 밀린 기존 이미지 제거
+        imgs[0].remove();
       }
-    }, 600); // transition과 맞춰야 함
+    }, 1000);
   }
 
-  // 매 1초마다 실행
+  // 1초마다 이미지 변경
   setInterval(changeImage, 1000);
 }
 
-// 모든 슬라이더 설정
-// document.querySelectorAll(".img-slider").forEach(setupImageSlider);
-
-// $(".accordion ul li .acc-title").on("click", function () {
-//   const li = $(this).closest("li");
-//   const desc = $(this).next(".acc-desc");
-
-//   if (desc.is(":visible")) {
-//     // 닫힐 때
-//     desc.removeClass("animate-in");
-//     desc.removeClass("open");
-//     desc.slideUp(200, () => {
-//       ScrollTrigger.refresh();
-//     });
-//   } else {
-//     // 열릴 때
-//     desc.stop(true, true).slideDown(200, function () {
-//       desc.addClass("animate-in");
-//       li.addClass("open");
-
-//       setTimeout(() => {
-//         ScrollTrigger.refresh();
-//       }, 100);
-//     });
-//   }
-// });
+// 2. DOMContentLoaded 후 실행
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".img-slider").forEach(setupImageSlider);
+});
 
 // header 천천히 위 -> 아래 등장
 $(function () {
