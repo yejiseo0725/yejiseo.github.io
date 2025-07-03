@@ -436,15 +436,15 @@ span.drag-label {
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 }
 
 .skill-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
   border-radius: 30px;
   margin: 10px auto 0;
   background: conic-gradient(#f0f0f0 0%, var(--font-color-w) 25%);
@@ -472,19 +472,21 @@ span.drag-label {
   margin: 40px auto;
   padding-bottom: 1rem;
   box-sizing: border-box;
+
+  /* border: 1px solid tomato; */
 }
 .skill-text strong {
   text-align: center;
   display: block;
   font-weight: 500;
   font-size: 1.4rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .skill-text p {
   text-align: justify;
   font-weight: 300;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   padding-bottom: 1rem;
   box-sizing: border-box;
 }
@@ -750,7 +752,7 @@ ul.workList li a.workImg:hover::after {
 ul.workList li .img-box {
   position: relative;
   width: 65%;
-  height: 600px;
+  height: 400px;
   object-fit: cover;
   padding: 40px;
   box-sizing: border-box;
@@ -1038,6 +1040,7 @@ footer h5.active strong {
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
 .touch em {
   display: block;
   font-style: normal;
