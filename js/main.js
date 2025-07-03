@@ -162,29 +162,32 @@ function setupImageSlider(sliderEl) {
   setInterval(changeImage, 1000);
 }
 
-$(function () {
-  $(".accordion .acc-title").on("click", function () {
-    const $desc = $(this).next(".acc-desc");
-    const $img = $(this).find("img");
+// 모든 슬라이더 설정
+// document.querySelectorAll(".img-slider").forEach(setupImageSlider);
 
-    if ($desc.is(":visible")) {
-      // 이미 열려있으면 닫고 아이콘 되돌리기
-      $desc.stop().slideUp(300).removeClass("animate-in");
-      $img.attr("src", "./images/asset/add.svg");
-    } else {
-      // 다른 열린 항목 닫기 + 아이콘도 되돌리기
-      $(".accordion .acc-desc:visible")
-        .stop()
-        .slideUp(300)
-        .removeClass("animate-in");
-      $(".accordion .acc-title img").attr("src", "./images/asset/add.svg");
+// $(".accordion ul li .acc-title").on("click", function () {
+//   const li = $(this).closest("li");
+//   const desc = $(this).next(".acc-desc");
 
-      // 현재 항목 열기 + 아이콘 바꾸기
-      $desc.stop().slideDown(300).addClass("animate-in");
-      $img.attr("src", "./images/asset/minus.svg");
-    }
-  });
-});
+//   if (desc.is(":visible")) {
+//     // 닫힐 때
+//     desc.removeClass("animate-in");
+//     desc.removeClass("open");
+//     desc.slideUp(200, () => {
+//       ScrollTrigger.refresh();
+//     });
+//   } else {
+//     // 열릴 때
+//     desc.stop(true, true).slideDown(200, function () {
+//       desc.addClass("animate-in");
+//       li.addClass("open");
+
+//       setTimeout(() => {
+//         ScrollTrigger.refresh();
+//       }, 100);
+//     });
+//   }
+// });
 
 // header 천천히 위 -> 아래 등장
 $(function () {
