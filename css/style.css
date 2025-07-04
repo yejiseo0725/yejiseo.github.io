@@ -402,7 +402,7 @@ body.light-header header .gnb ul li:last-child a:hover {
   box-sizing: border-box;
 }
 .sc1 .my-info span {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.8rem;
   line-height: 1.7;
 
@@ -582,7 +582,7 @@ span.drag-label {
 .accordion ul li .acc-desc strong {
   display: flex;
   justify-content: space-between;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 20px;
 }
@@ -592,7 +592,7 @@ span.drag-label {
 }
 
 .accordion ul li .acc-desc p {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--font-color);
