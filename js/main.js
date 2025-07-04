@@ -10,7 +10,6 @@ $(function () {
 });
 
 gsap.registerPlugin(ScrollTrigger);
-
 window.addEventListener("DOMContentLoaded", () => {
   // 약간의 시간차를 두고 애니메이션 클래스 추가
   setTimeout(() => {
@@ -18,17 +17,17 @@ window.addEventListener("DOMContentLoaded", () => {
   }, 100); // DOM 로드 직후 약간의 지연
 });
 
-// visual img 위로 올라가게
-gsap.to(".img-slider", {
-  y: "-1000%", // 화면 위쪽으로 자기 높이만큼 이동
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".visual", // 애니메이션 시작 기준 영역
-    start: "top top", // 스크롤 영역 시작
-    end: "+=800", // 이 스크롤 구간 동안 애니메이션 진행
-    scrub: true, // 스크롤과 애니메이션 동기화
-  },
-});
+// // visual img 위로 올라가게
+// gsap.to(".img-slider", {
+//   y: "-1000%", // 화면 위쪽으로 자기 높이만큼 이동
+//   ease: "none",
+//   scrollTrigger: {
+//     trigger: ".visual", // 애니메이션 시작 기준 영역
+//     start: "top top", // 스크롤 영역 시작
+//     end: "+=800", // 이 스크롤 구간 동안 애니메이션 진행
+//     scrub: true, // 스크롤과 애니메이션 동기화
+//   },
+// });
 
 // visual svg 이동 + 회전 + fadeOut
 gsap

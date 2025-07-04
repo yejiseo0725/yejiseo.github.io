@@ -1,0 +1,71 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  will-change: transfrom, opacity;
+}
+header .inner {
+  width: 100%;
+  padding: 15px 2rem;
+  box-sizing: border-box;
+}
+
+header .gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+header .gnb .gnb-logo {
+}
+header .gnb .gnb-logo a {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--font-color-w);
+}
+
+header .gnb ul {
+  display: flex;
+  align-items: center;
+}
+header .gnb ul li {
+  margin-right: 30px;
+}
+header .gnb ul li:last-child {
+  margin-right: 0;
+  border: 1px solid var(--font-color-w);
+  border-radius: 30px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+header .gnb ul li a {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--font-color-w);
+}
+header .gnb ul li:last-child a {
+  display: block;
+  padding: 15px 35px;
+  background-color: transparent;
+  transition: 0.2s;
+}
+header .gnb ul li:last-child a:hover {
+  background-color: var(--font-color-w);
+  color: var(--font-color);
+  transition: 0.2s;
+}
+
+/* light-header 상태: 흰 배경에 대비되는 메인 컬러로 전환 */
+body.light-header header .gnb a,
+body.light-header header .gnb ul li a {
+  color: var(--main-color);
+}
+body.light-header header .gnb ul li:last-child {
+  border-color: var(--main-color);
+}
+body.light-header header .gnb ul li:last-child a:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}

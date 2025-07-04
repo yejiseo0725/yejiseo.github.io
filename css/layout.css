@@ -113,3 +113,15 @@
   font-weight: 400;
   font-style: normal;
 }
+
+/* layout */
+* {
+  font-family: "Pretendard";
+  color: var(--font-color);
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
