@@ -130,3 +130,56 @@ main h1 span {
   height: auto;
   display: block;
 }
+
+.detail {
+}
+.detail .inner {
+}
+
+.slick-slider {
+  position: relative;
+}
+.slick-list {
+  width: 100%;
+  height: 700px;
+}
+
+.detail .slider-area {
+}
+
+.detail .slider-area .slide-img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+.detail .slider-area .slide-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.detail .info-area {
+  display: flex;
+
+  border: 2px solid tomato;
+}
+.detail .info-area .info-traits {
+  width: 50%;
+}
+.detail .info-area h2 {
+}
+.detail .info-area .detail-wrap {
+}
+.detail .info-area .details {
+}
+.detail .info-area .details h3 {
+}
+.detail .info-area .details em {
+}
+
+.detail .info-area .info-desc {
+  width: 50%;
+}
+.detail .info-area .info-desc h2 {
+}
+.detail .info-area .info-desc p {
+}
