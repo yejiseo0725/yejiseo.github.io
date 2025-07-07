@@ -49,12 +49,12 @@ header .gnb ul li:last-child a {
   display: block;
   padding: 15px 35px;
   background-color: transparent;
-  transition: 0.2s;
+  transition: all 0.2s ease;
 }
 header .gnb ul li:last-child a:hover {
   background-color: var(--font-color-w);
   color: var(--font-color);
-  transition: 0.2s;
+  transition: all 0.2s ease;
 }
 
 /* light-header 상태: 흰 배경에 대비되는 메인 컬러로 전환 */

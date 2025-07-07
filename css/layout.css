@@ -91,6 +91,7 @@
   --blue: #00a8fb;
   --purple: #a65cd0;
   --dark-gray: #888;
+  --light-gray: #eee;
 }
 
 ::selection {
