@@ -16,6 +16,11 @@ document.querySelectorAll(".white-section").forEach((section) => {
 // slick-slider
 $(function () {
   $(".slide-area").slick({
+    arrows: true,
+    // dots: true,
+    appendArrows: $(".slick-arrows"),
+    prevArrow: $(".prevArrow"),
+    nextArrow: $(".nextArrow"),
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
