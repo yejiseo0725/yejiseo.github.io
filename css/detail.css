@@ -9,7 +9,7 @@ body {
 
 .inner {
   box-sizing: border-box;
-  max-width: 1400px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 2rem;
   box-sizing: border-box;
@@ -39,8 +39,8 @@ main {
   position: relative;
   width: 100%;
   height: 40vh;
-  border: 2px solid tomato;
-  /* background-color: var(--blue); */
+  padding: 100px 0;
+  background-color: teal;
 }
 main .inner {
   display: flex;
@@ -91,8 +91,8 @@ main h1 span {
 
 .arrow-wrap {
   position: absolute;
-  width: 70px;
-  right: 20%;
+  width: 50px;
+  right: 17%;
   bottom: 5%;
   object-fit: contain;
   box-sizing: border-box;
@@ -138,10 +138,28 @@ main h1 span {
 
 .slick-slider {
   position: relative;
+  padding: 160px 0 80px;
 }
 .slick-list {
   width: 100%;
-  height: 700px;
+  height: 600px;
+}
+.slick-slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+
+  background-color: gold;
+}
+.slick-slider button.slick-prev {
+  left: 1rem;
+}
+.slick-slider button.slick-next {
+  right: 1rem;
 }
 
 .detail .slider-area {
@@ -149,31 +167,45 @@ main h1 span {
 
 .detail .slider-area .slide-img {
   width: 100%;
-  height: 700px;
+  height: 600px;
   object-fit: cover;
 }
 .detail .slider-area .slide-img img {
   width: 100%;
-  height: 100%;
+  height: 600px;
 }
 
 .detail .info-area {
   display: flex;
-
-  border: 2px solid tomato;
+  gap: 0 2rem;
+  padding-bottom: 60px;
 }
 .detail .info-area .info-traits {
   width: 50%;
 }
 .detail .info-area h2 {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 25px;
 }
 .detail .info-area .detail-wrap {
 }
 .detail .info-area .details {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid #d3d3d3;
 }
 .detail .info-area .details h3 {
+  width: 35%;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 .detail .info-area .details em {
+  width: 65%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .detail .info-area .info-desc {
@@ -182,4 +214,7 @@ main h1 span {
 .detail .info-area .info-desc h2 {
 }
 .detail .info-area .info-desc p {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
