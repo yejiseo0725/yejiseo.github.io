@@ -239,6 +239,7 @@ main h1 span {
 }
 .detail .info-area .details {
   display: flex;
+  align-items: center;
   padding: 1rem 0;
   border-bottom: 1px solid #d3d3d3;
 }
