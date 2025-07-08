@@ -53,6 +53,12 @@ main.d3 {
 main.d4 {
   background-color: #131836;
 }
+main.d01 {
+  background-color: #000;
+}
+main.d02 {
+  background-color: #888;
+}
 
 main .inner {
   display: flex;
@@ -225,14 +231,17 @@ main.d2 h1 span {
   margin-bottom: 60px;
 }
 .detail .url-icons {
-  width: 50px;
-  height: 50px;
+  display: flex;
   object-fit: cover;
 }
 .detail .url-icons a {
   display: block;
   width: 50px;
   height: 50px;
+  margin-right: 1rem;
+}
+.detail .url-icons a:last-child {
+  margin-right: 0;
 }
 .detail .url-icons a img {
   width: 100%;
