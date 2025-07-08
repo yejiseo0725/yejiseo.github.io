@@ -438,7 +438,7 @@ $(function () {
 
   for (let i = 0; i < listBox.length; i++) {
     listBox[i].addEventListener("mouseover", () => {
-      const src = `./images/img${i + 1}.jpg`;
+      const src = `./images/main/d${i + 1}.jpg`;
       img.src = src;
       console.log("hover img src:", src); // 로그 확인
 

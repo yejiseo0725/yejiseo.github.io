@@ -813,7 +813,7 @@ ul.workExp li.active {
   top: 0;
   left: 0;
   width: 400px;
-  height: auto;
+  height: 300px;
   z-index: 99;
   pointer-events: none;
   transform: scale(0);
@@ -822,7 +822,7 @@ ul.workExp li.active {
 .sc2 .imgBox img {
   display: block;
   width: 400px;
-  height: auto;
+  height: 300px;
   object-fit: cover;
 }
 /* 이 구간에서만 img hover scroll 없애기 */
