@@ -15,26 +15,6 @@ body {
   box-sizing: border-box;
 }
 
-header {
-  background-color: transparent;
-}
-header .inner {
-  background-color: transparent;
-}
-header .gnb .gnb-logo a {
-  color: var(--font-color);
-}
-header .gnb ul li:last-child {
-  border: 1px solid var(--font-color);
-}
-header .gnb ul li a {
-  color: var(--font-color);
-}
-header .gnb ul li:last-child a:hover {
-  background-color: var(--font-color);
-  color: var(--font-color-w);
-}
-
 main {
   position: relative;
   width: 100%;
@@ -45,7 +25,7 @@ main.d1 {
   background-color: #fa5d53;
 }
 main.d2 {
-  background-color: #e9feff;
+  background-color: #0047ab;
 }
 main.d3 {
   background-color: #0085ff;
@@ -74,9 +54,6 @@ main .pj-cat {
   border-bottom: 1px solid var(--font-color-w);
   margin-bottom: 50px;
 }
-main.d2 .pj-cat {
-  border-bottom: 1px solid var(--font-color);
-}
 
 main .pj-cat a {
   display: flex;
@@ -102,8 +79,44 @@ main .pj-cat a strong {
   letter-spacing: 1px;
   color: var(--font-color-w);
 }
-main.d2 .pj-cat a strong {
-  color: var(--font-color);
+
+/* Splitting JS */
+main .pj-cat a strong .char {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  color: transparent;
+}
+main .pj-cat a strong .char::after,
+main .pj-cat a strong .char::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: attr(data-char);
+  color: var(--font-color-w);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  transition-delay: calc(30ms * var(--char-index));
+}
+
+/* 평소: after(기존 텍스트)는 제자리에 있음 */
+main .pj-cat a strong .char::after {
+  transform: translateY(0%);
+  opacity: 1;
+}
+/* 평소: before(새 텍스트)는 아래에 있음 */
+main .pj-cat a strong .char::before {
+  transform: translateY(100%);
+  opacity: 0;
+}
+/* hover 시: 기존 텍스트 위로 사라짐 */
+main .pj-cat a:hover strong .char::after {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+/* hover 시: 새 텍스트가 올라옴 */
+main .pj-cat a:hover strong .char::before {
+  transform: translateY(0%);
+  opacity: 1;
 }
 
 main h1 {
@@ -115,9 +128,6 @@ main h1 {
 }
 main h1 span {
   color: var(--font-color-w);
-}
-main.d2 h1 span {
-  color: var(--font-color);
 }
 
 .arrow-wrap {
