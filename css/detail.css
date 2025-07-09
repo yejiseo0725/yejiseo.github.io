@@ -338,3 +338,141 @@ main h1 span {
   height: 100%;
   object-fit: cover;
 }
+
+.detail h4 {
+  font-weight: 700;
+  font-size: 6rem;
+  line-height: 1.1;
+  margin: 80px 0;
+}
+
+.detail ul.workList {
+}
+.detail ul.workList li {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  box-sizing: border-box;
+}
+.detail ul.workList li a {
+  display: inline-block;
+  color: var(--font-color);
+}
+.detail ul.workList li a.workImg::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  object-fit: cover;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: url(../images/asset/sparkle.svg) no-repeat center/150px;
+  z-index: 1;
+  animation: spin 1.5s infinite linear;
+  transition: 0.3s;
+}
+
+/* li hover */
+.detail ul.workList li a.workImg:hover img {
+  filter: brightness(40%);
+}
+.detail ul.workList li a.workImg:hover::after {
+  width: 150px;
+  height: 150px;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.detail ul.workList li .img-box {
+  position: relative;
+  width: 50%;
+  height: 440px;
+  object-fit: cover;
+  padding: 40px 3rem 40px 0;
+  box-sizing: border-box;
+}
+.detail ul.workList li .img-box a {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  overflow: hidden;
+}
+.detail ul.workList li .img-box a:hover img {
+  transform: scale(1.2);
+}
+
+.detail ul.workList.motion li .img-box {
+  transform: translate3d(0, 0, 0);
+}
+.detail ul.workList.motion li .img-box a {
+  animation: picAni 1.3s;
+}
+@keyframes picAni {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0%;
+    transform: translate3d(0, 70px, 0);
+  }
+}
+.detail ul.workList li .img-box a img {
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+}
+
+.detail ul.workList li .text-box {
+  width: 45%;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+.detail ul.workList li .text-box a {
+  position: relative;
+  display: inline-block;
+  line-height: 1.2;
+}
+.detail ul.workList li .text-box a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--font-color);
+  transition: width 0.4s ease-in-out;
+}
+.detail ul.workList li .text-box a:hover::after {
+  width: 100%;
+}
+
+/* txt-year */
+.detail ul.workList li .text-box a em {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 600;
+  background-color: transparent;
+  color: var(--font-color);
+  border: 1px solid var(--font-color);
+  border-radius: 20px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+}
+/* txt-title */
+.detail ul.workList li .text-box a p {
+  font-weight: 300;
+  font-size: 3rem;
+  color: var(--font-color);
+  letter-spacing: 1px;
+}
