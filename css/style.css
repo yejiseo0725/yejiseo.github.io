@@ -1020,8 +1020,6 @@ footer small {
 /* responsive */
 @media (max-width: 1300px) {
   .inner {
-    /* max-width: 100%; */
-    /* width: 100%; */
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -1088,12 +1086,8 @@ footer small {
   }
 
   .visual {
-    /* width: 1000px;
-    max-width: 1000px; */
   }
   .visual .inner {
-    /* width: 1000px; */
-    /* max-width: 1000px; */
   }
 
   header .inner {
