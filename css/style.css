@@ -372,8 +372,6 @@ span.drag-label {
   margin: 40px auto;
   padding-bottom: 1rem;
   box-sizing: border-box;
-
-  /* border: 1px solid tomato; */
 }
 .skill-text strong {
   text-align: center;
@@ -383,12 +381,18 @@ span.drag-label {
   margin-bottom: 30px;
 }
 .skill-text p {
-  text-align: justify;
-  font-weight: 300;
+  /* text-align: justify; */
+  font-weight: 400;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   padding-bottom: 1rem;
   box-sizing: border-box;
+  height: 140px;
+}
+.skill-text p:last-child {
+  text-align: justify;
+  color: #888;
+  height: auto;
 }
 
 .slick-slider {
@@ -495,6 +499,12 @@ span.drag-label {
   line-height: 1.8;
   color: var(--font-color);
   padding-bottom: 5px;
+}
+
+/* korean */
+.ex-wrap strong.ko,
+.accordion ul li .acc-desc p.ko {
+  color: #888;
 }
 
 .resume-btn-area {
@@ -1132,6 +1142,10 @@ footer small {
 }
 
 @media (max-width: 800px) {
+  * {
+    pointer-events: none;
+  }
+
   .skill-text {
     width: 50%;
   }
