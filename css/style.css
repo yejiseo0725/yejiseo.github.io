@@ -1142,10 +1142,6 @@ footer small {
 }
 
 @media (max-width: 800px) {
-  * {
-    pointer-events: none;
-  }
-
   .skill-text {
     width: 50%;
   }
@@ -1159,6 +1155,7 @@ footer small {
   .sc2 .imgBox {
     opacity: 0;
     display: none;
+    pointer-events: none;
   }
 
   footer h5 {

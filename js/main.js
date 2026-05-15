@@ -9,27 +9,24 @@ $(function () {
   });
 });
 
+// ----------------------------------------------------------------
+// GSAP 플러그인 등록
+// ----------------------------------------------------------------
 gsap.registerPlugin(ScrollTrigger);
+
+// ----------------------------------------------------------------
+// visual 진입 애니메이션
+// ----------------------------------------------------------------
 window.addEventListener("DOMContentLoaded", () => {
-  // 약간의 시간차를 두고 애니메이션 클래스 추가
   setTimeout(() => {
     document.querySelector(".visual")?.classList.add("animate-in");
-  }, 100); // DOM 로드 직후 약간의 지연
+  }, 100);
 });
 
-// // visual img 위로 올라가게
-// gsap.to(".img-slider", {
-//   y: "-1000%", // 화면 위쪽으로 자기 높이만큼 이동
-//   ease: "none",
-//   scrollTrigger: {
-//     trigger: ".visual", // 애니메이션 시작 기준 영역
-//     start: "top top", // 스크롤 영역 시작
-//     end: "+=800", // 이 스크롤 구간 동안 애니메이션 진행
-//     scrub: true, // 스크롤과 애니메이션 동기화
-//   },
-// });
-
-// visual svg 이동 + 회전 + fadeOut
+// ----------------------------------------------------------------
+// visual SVG + pin 애니메이션
+// ScrollTrigger 하나로 통합 (ticker/scroll 이벤트 제거)
+// ----------------------------------------------------------------
 gsap
   .timeline({
     scrollTrigger: {
@@ -40,103 +37,18 @@ gsap
       pin: true,
     },
   })
-  .to(
-    ".moon",
-    {
-      x: -1000,
-      rotation: 360,
-      ease: "none",
-      duration: 0.9, // 전체 타임라인 중 70% 구간
-    },
-    0
-  )
-  .to(
-    ".moon",
-    {
-      opacity: 0,
-      ease: "none",
-      duration: 0.1, // 나머지 30% 구간에서 사라짐
-    },
-    0.8
-  )
+  .to(".moon", { x: -1000, rotation: 360, ease: "none", duration: 0.9 }, 0)
+  .to(".moon", { opacity: 0, ease: "none", duration: 0.1 }, 0.8)
+  .to(".sparkle", { x: 1000, rotation: 360, ease: "none", duration: 0.9 }, 0)
+  .to(".sparkle", { opacity: 0, ease: "none", duration: 0.1 }, 0.8)
+  .to(".atom", { x: -1000, rotation: 360, ease: "none", duration: 0.9 }, 0)
+  .to(".atom", { opacity: 0, ease: "none", duration: 0.1 }, 0.8);
 
-  .to(
-    ".sparkle",
-    {
-      x: 1000,
-      rotation: 360,
-      ease: "none",
-      duration: 0.9,
-    },
-    0
-  )
-  .to(
-    ".sparkle",
-    {
-      opacity: 0,
-      ease: "none",
-      duration: 0.1,
-    },
-    0.8
-  )
-
-  .to(
-    ".atom",
-    {
-      x: -1000,
-      rotation: 360,
-      ease: "none",
-      duration: 0.9,
-    },
-    0
-  )
-  .to(
-    ".atom",
-    {
-      opacity: 0,
-      ease: "none",
-      duration: 0.1,
-    },
-    0.8
-  );
-
-// 스크롤에 따라 이동하는 visual svg 애니메이션
-const moon = document.querySelector(".moon");
-const sparkle = document.querySelector(".sparkle");
-const atom = document.querySelector(".atom");
-
-let targetScroll = 0; // 실제 스크롤값
-let currentScroll = 0; // 현재 애니메이션에서 사용되는 값
-
-// 스크롤 이벤트로 targetScroll 업데이트
-window.addEventListener("scroll", () => {
-  targetScroll = window.scrollY;
-});
-
-// 매 프레임마다 currentScroll이 targetScroll로 부드럽게 움직임 (lerp)
-gsap.ticker.add(() => {
-  // lerp 함수 (linear interpolation)
-  currentScroll += (targetScroll - currentScroll) * 0.1; // 0.1은 부드러움 정도 (낮을수록 더 느림)
-
-  // 애니메이션에 반영
-  gsap.set(moon, {
-    x: -currentScroll / 5,
-    rotation: currentScroll / 5,
-  });
-  gsap.set(sparkle, {
-    x: currentScroll / 5,
-    rotation: currentScroll / 5,
-  });
-  gsap.set(atom, {
-    x: -currentScroll / 10,
-    rotation: currentScroll / 5,
-  });
-});
-
+// ----------------------------------------------------------------
 // visual img 1초마다 변경
-// 1. 전역 함수 정의
+// ----------------------------------------------------------------
 function setupImageSlider(sliderEl) {
-  const imageIndexes = sliderEl.dataset.images.split(","); // 예: "1,2,3"
+  const imageIndexes = sliderEl.dataset.images.split(",");
   let currentIndex = 0;
   const inner = sliderEl.querySelector(".slider-inner");
 
@@ -145,7 +57,6 @@ function setupImageSlider(sliderEl) {
     const newImg = document.createElement("img");
     newImg.src = `./images/img${imageIndexes[currentIndex]}.jpg`;
     newImg.alt = "yeji-pics";
-
     newImg.style.opacity = 0;
     newImg.style.transition = "opacity 0.6s ease";
     inner.appendChild(newImg);
@@ -156,25 +67,22 @@ function setupImageSlider(sliderEl) {
 
     setTimeout(() => {
       const imgs = inner.querySelectorAll("img");
-      if (imgs.length > 1) {
-        imgs[0].remove();
-      }
+      if (imgs.length > 1) imgs[0].remove();
     }, 1000);
   }
 
-  // 1초마다 이미지 변경
   setInterval(changeImage, 1000);
 }
 
-// 2. DOMContentLoaded 후 실행
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".img-slider").forEach(setupImageSlider);
 });
 
-// header 천천히 위 -> 아래 등장
+// ----------------------------------------------------------------
+// header 등장 애니메이션
+// ----------------------------------------------------------------
 $(function () {
-  gsap.set("header", { y: -100, opacity: 0 }); // 초기 상태: 위로 올라가 있고 안 보임
-
+  gsap.set("header", { y: -100, opacity: 0 });
   gsap.to("header", {
     y: 0,
     opacity: 1,
@@ -184,7 +92,9 @@ $(function () {
   });
 });
 
-// white-section 을 만나면 색이 변하는 header
+// ----------------------------------------------------------------
+// white-section 진입 시 header 색상 변경
+// ----------------------------------------------------------------
 document.querySelectorAll(".white-section").forEach((section) => {
   ScrollTrigger.create({
     trigger: section,
@@ -197,8 +107,10 @@ document.querySelectorAll(".white-section").forEach((section) => {
   });
 });
 
+// ----------------------------------------------------------------
+// sc1: half-circle 이동 + border-radius 변화
+// ----------------------------------------------------------------
 $(function () {
-  // 1. half-circle-wrap 이동
   gsap.to(".half-circle-wrap", {
     top: "-300px",
     ease: "none",
@@ -207,11 +119,9 @@ $(function () {
       start: "top 80%",
       end: "top 70%",
       scrub: 1,
-      // markers: true,
     },
   });
 
-  // 2. 반원 → 직선 변화 (border-radius 줄이기)
   gsap.to(".half-circle", {
     borderTopLeftRadius: "0%",
     borderTopRightRadius: "0%",
@@ -221,16 +131,16 @@ $(function () {
       start: "top 80%",
       end: "top 70%",
       scrub: 1,
-      // markers: true, // 필요 시 켜기
     },
   });
 });
 
+// ----------------------------------------------------------------
+// sc1: my-info 텍스트 fill 애니메이션
+// ----------------------------------------------------------------
 gsap.fromTo(
   ".sc1 .my-info span",
-  {
-    "background-size": "0% 100%",
-  },
+  { "background-size": "0% 100%" },
   {
     "background-size": "100% 100%",
     scrollTrigger: {
@@ -238,18 +148,19 @@ gsap.fromTo(
       pinnedContainer: ".sc1 .my-info",
       start: "40% 90%",
       end: "70% 100%",
-      // markers: true,
       scrub: 3,
     },
   }
 );
 
-// 'Drag me!' GSAP
+// ----------------------------------------------------------------
+// sc1: 'Drag Me!' 등장
+// ----------------------------------------------------------------
 $(function () {
   gsap.to(".drag-label", {
     scrollTrigger: {
       trigger: ".my-skill",
-      start: "top 80%", // 뷰포트 80%쯤에 들어왔을 때 시작
+      start: "top 80%",
       toggleActions: "play reverse play reverse",
     },
     y: 0,
@@ -259,7 +170,9 @@ $(function () {
   });
 });
 
-// slick-slider
+// ----------------------------------------------------------------
+// sc1: slick slider (skill)
+// ----------------------------------------------------------------
 $(function () {
   $(".my-skill").slick({
     centerMode: true,
@@ -282,31 +195,39 @@ $(function () {
   });
 });
 
-// accordion list
+// ----------------------------------------------------------------
+// sc1: accordion
+// 열고 닫힐 때 ScrollTrigger.refresh()로 DOM 높이 재계산
+// ----------------------------------------------------------------
 $(function () {
   $(".accordion .acc-title").on("click", function () {
     const $desc = $(this).next(".acc-desc");
     const $img = $(this).find("img");
 
     if ($desc.is(":visible")) {
-      // 이미 열려있으면 닫고 아이콘 되돌리기
-      $desc.stop().slideUp(300).removeClass("animate-in");
+      $desc
+        .stop()
+        .slideUp(300, () => ScrollTrigger.refresh())
+        .removeClass("animate-in");
       $img.attr("src", "./images/asset/add.svg");
     } else {
-      // 다른 열린 항목 닫기 + 아이콘도 되돌리기
       $(".accordion .acc-desc:visible")
         .stop()
         .slideUp(300)
         .removeClass("animate-in");
       $(".accordion .acc-title img").attr("src", "./images/asset/add.svg");
-
-      // 현재 항목 열기 + 아이콘 바꾸기
-      $desc.stop().slideDown(300).addClass("animate-in");
+      $desc
+        .stop()
+        .slideDown(300, () => ScrollTrigger.refresh())
+        .addClass("animate-in");
       $img.attr("src", "./images/asset/minus.svg");
     }
   });
 });
 
+// ----------------------------------------------------------------
+// sc2: 배경색 + 텍스트 색상 전환 + h3 슬라이드인
+// ----------------------------------------------------------------
 $(function () {
   gsap
     .timeline({
@@ -315,10 +236,8 @@ $(function () {
         start: "0% 100%",
         end: "0% 0%",
         scrub: 1,
-        // markers: true,
       },
     })
-
     .to(
       ".sc2",
       {
@@ -341,136 +260,105 @@ $(function () {
     )
     .to(
       ".pj-cat strong",
-      {
-        color: "var(--font-color-w)",
-        ease: "none",
-        duration: 5,
-      },
+      { color: "var(--font-color-w)", ease: "none", duration: 5 },
       0
     )
     .to(
       ".h3-wrap h3 span",
-      {
-        color: "var(--font-color-w)",
-        ease: "none",
-        duration: 5,
-      },
+      { color: "var(--font-color-w)", ease: "none", duration: 5 },
       0
     )
-
     .fromTo(
       ".sc2 h3 .a",
-      {
-        x: "-100%",
-      },
-      {
-        x: "0%",
-        ease: "none",
-        duration: 5,
-      },
+      { x: "-100%" },
+      { x: "0%", ease: "none", duration: 5 },
       0
     )
     .fromTo(
       ".sc2 h3 .b",
-      {
-        x: "100%",
-      },
-      {
-        x: "0%",
-        ease: "none",
-        duration: 5,
-      },
+      { x: "100%" },
+      { x: "0%", ease: "none", duration: 5 },
       0
     );
 });
 
-// workList GSAP
+// ----------------------------------------------------------------
+// sc2: workList img-box / text-box — 한번 등장하면 고정
+// (아코디언 높이 변화에 영향받지 않도록 scrub/toggleClass 제거)
+// ----------------------------------------------------------------
 $(function () {
   gsap.utils.toArray(".img-box").forEach(function (imgBox) {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: imgBox,
-        start: "50% 80%",
-        end: "100% 0%",
-        toggleClass: { targets: imgBox, className: "active" },
-        scrub: 1,
-        // markers: true,
-      },
+    ScrollTrigger.create({
+      trigger: imgBox,
+      start: "top 85%",
+      once: true,
+      onEnter: () => imgBox.classList.add("active"),
     });
   });
 
   gsap.utils.toArray(".text-box").forEach(function (textBox) {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: textBox,
-        start: "50% 80%",
-        end: "100% 0%",
-        toggleClass: { targets: textBox, className: "active" },
-        scrub: 1,
-        // markers: true,
-      },
+    ScrollTrigger.create({
+      trigger: textBox,
+      start: "top 85%",
+      once: true,
+      onEnter: () => textBox.classList.add("active"),
     });
   });
 });
 
-// workExp GSAP
+// ----------------------------------------------------------------
+// sc2: workExp li — 한번 등장하면 고정
+// ----------------------------------------------------------------
 $(function () {
   gsap.utils.toArray(".workExp li").forEach(function (item) {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: item,
-        start: "50% 80%",
-        end: "100% 0%",
-        toggleClass: { targets: item, className: "active" },
-        scrub: 1,
-        // markers: true,
-      },
+    ScrollTrigger.create({
+      trigger: item,
+      start: "top 85%",
+      once: true,
+      onEnter: () => item.classList.add("active"),
     });
   });
 });
 
-// workExp li hover 시 이미지 등장
+// ----------------------------------------------------------------
+// sc2: workExp li hover 시 이미지 따라다니기
+// (800px 이하에서는 imgBox가 display:none이라 자동으로 비활성)
+// ----------------------------------------------------------------
 $(function () {
-  // sc2 workExp: hover img
-  let listBox = document.querySelectorAll(".sc2 ul.workExp li");
-  let imgBox = document.querySelector(".sc2 .imgBox");
-  let img = document.querySelector(".sc2 .imgBox img");
+  const listBox = document.querySelectorAll(".sc2 ul.workExp li");
+  const imgBox = document.querySelector(".sc2 .imgBox");
+  const img = document.querySelector(".sc2 .imgBox img");
 
-  for (let i = 0; i < listBox.length; i++) {
-    listBox[i].addEventListener("mouseover", () => {
-      const src = `./images/main/d${i + 1}.jpg`;
-      img.src = src;
-      console.log("hover img src:", src); // 로그 확인
+  if (!imgBox || !img) return;
 
+  listBox.forEach((item, i) => {
+    item.addEventListener("mouseover", () => {
+      img.src = `./images/main/d${i + 1}.jpg`;
       gsap.set(imgBox, { scale: 0, opacity: 0 });
       gsap.to(imgBox, { scale: 1, opacity: 1, duration: 0.3 });
     });
 
-    listBox[i].addEventListener("mousemove", (e) => {
-      let imgBoxX = e.clientX + 20;
-      let imgBoxY = e.clientY - 20;
-      imgBox.style.left = imgBoxX + "px";
-      imgBox.style.top = imgBoxY + "px";
+    item.addEventListener("mousemove", (e) => {
+      imgBox.style.left = e.clientX + 20 + "px";
+      imgBox.style.top = e.clientY - 20 + "px";
     });
 
-    listBox[i].addEventListener("mouseout", () => {
+    item.addEventListener("mouseout", () => {
       gsap.to(imgBox, { scale: 0, opacity: 0, duration: 0.3 });
     });
-  }
+  });
 });
 
-// footer GSAP
+// ----------------------------------------------------------------
+// footer h5 — 한번 등장하면 고정
+// ----------------------------------------------------------------
 $(function () {
-  gsap.utils.toArray("footer h5").forEach(function (footer) {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: footer,
-        start: "30% 80%",
-        end: "100% 0%",
-        toggleClass: { targets: footer, className: "active" },
-        scrub: 1,
-        // markers: true,
-      },
+  gsap.utils.toArray("footer h5").forEach(function (el) {
+    ScrollTrigger.create({
+      trigger: el,
+      start: "top 85%",
+      once: true,
+      onEnter: () => el.classList.add("active"),
     });
   });
 });
