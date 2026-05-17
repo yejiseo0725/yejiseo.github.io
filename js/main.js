@@ -35,6 +35,7 @@ gsap
       end: "+=1600",
       scrub: true,
       pin: true,
+      pinSpacing: false,
     },
   })
   .to(".moon", { x: -1000, rotation: 360, ease: "none", duration: 0.9 }, 0)
@@ -205,9 +206,11 @@ $(function () {
     const $img = $(this).find("img");
 
     if ($desc.is(":visible")) {
-      $desc
+      $$desc
         .stop()
-        .slideUp(300, () => ScrollTrigger.refresh())
+        .slideUp(300, function () {
+          setTimeout(() => ScrollTrigger.refresh(), 50);
+        })
         .removeClass("animate-in");
       $img.attr("src", "./images/asset/add.svg");
     } else {
@@ -218,7 +221,9 @@ $(function () {
       $(".accordion .acc-title img").attr("src", "./images/asset/add.svg");
       $desc
         .stop()
-        .slideDown(300, () => ScrollTrigger.refresh())
+        .slideDown(300, function () {
+          setTimeout(() => ScrollTrigger.refresh(), 50);
+        })
         .addClass("animate-in");
       $img.attr("src", "./images/asset/minus.svg");
     }
