@@ -13,7 +13,6 @@ body {
   overflow-x: hidden;
   margin: 0 auto;
   padding: 0 2rem;
-  box-sizing: border-box;
 }
 
 main {
@@ -55,13 +54,11 @@ main .pj-cat {
   border-bottom: 1px solid var(--font-color-w);
   margin-bottom: 50px;
 }
-
 main .pj-cat a {
   display: flex;
   align-items: center;
   width: fit-content;
 }
-
 main .pj-cat a .arrow-left-wrap {
   width: 25px;
   height: 25px;
@@ -73,7 +70,6 @@ main .pj-cat a .arrow-left-wrap img {
   width: 100%;
   height: 100%;
 }
-
 main .pj-cat a strong {
   font-weight: 500;
   font-size: 0.9rem;
@@ -98,23 +94,18 @@ main .pj-cat a strong .char::before {
   transition: transform 0.35s ease, opacity 0.35s ease;
   transition-delay: calc(30ms * var(--char-index));
 }
-
-/* 평소: after(기존 텍스트)는 제자리에 있음 */
 main .pj-cat a strong .char::after {
   transform: translateY(0%);
   opacity: 1;
 }
-/* 평소: before(새 텍스트)는 아래에 있음 */
 main .pj-cat a strong .char::before {
   transform: translateY(100%);
   opacity: 0;
 }
-/* hover 시: 기존 텍스트 위로 사라짐 */
 main .pj-cat a:hover strong .char::after {
   transform: translateY(-100%);
   opacity: 0;
 }
-/* hover 시: 새 텍스트가 올라옴 */
 main .pj-cat a:hover strong .char::before {
   transform: translateY(0%);
   opacity: 1;
@@ -158,10 +149,9 @@ main h1 span {
   }
 }
 
+/* 슬라이더 — slick 제거 후 바닐라 구조 유지 */
 .slick-wrap {
   position: relative;
-}
-.slick-wrap .slick-arrows {
 }
 .slick-wrap .slick-arrows span {
   position: absolute;
@@ -191,12 +181,11 @@ main h1 span {
   margin: 0 auto;
   max-width: 100%;
   height: 100%;
+  overflow: hidden;
 }
-
 .slide-img {
   padding: 0;
 }
-
 .slide-img img {
   width: 100%;
   height: auto;
@@ -208,31 +197,23 @@ main h1 span {
   padding: 160px 0;
   box-sizing: border-box;
 }
-.detail .inner {
-}
 
-.slick-slider {
+.slider-wrap {
   position: relative;
   margin-bottom: 80px;
+  overflow: hidden;
 }
-.slick-list {
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.slider-track .slide-img {
+  flex: 0 0 100%;
+}
+.slider-track .slide-img img {
   width: 100%;
   height: 600px;
-}
-
-.detail .slider-area {
-}
-
-.detail .slider-area .slide-img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-
-  border: 2px solid tomato;
-}
-.detail .slider-area .slide-img img {
-  width: 100%;
-  height: 600px;
 }
 
 .detail .url-area {
@@ -261,7 +242,6 @@ main h1 span {
   width: 100%;
   height: 100%;
 }
-
 .detail .url-web {
   border: 1px solid var(--font-color);
   border-radius: 30px;
@@ -280,7 +260,6 @@ main h1 span {
 .detail .url-web:hover a {
   background-color: var(--main-color);
   color: var(--font-color-w);
-  transition: all 0.2s ease;
 }
 
 .detail .info-area {
@@ -296,8 +275,6 @@ main h1 span {
   font-weight: 500;
   font-size: 2rem;
   margin-bottom: 25px;
-}
-.detail .info-area .detail-wrap {
 }
 .detail .info-area .details {
   display: flex;
@@ -317,11 +294,8 @@ main h1 span {
   font-size: 1.1rem;
   line-height: 1.7;
 }
-
 .detail .info-area .info-desc {
   width: 50%;
-}
-.detail .info-area .info-desc h2 {
 }
 .detail .info-area .info-desc p {
   font-weight: 400;
@@ -331,11 +305,6 @@ main h1 span {
 
 .detail .proposal-area {
   margin-top: 160px;
-}
-.detail .proposal-area p {
-}
-
-.detail .proposal-area .guide-wrap {
 }
 .detail .proposal-area .guide-wrap img {
   width: 100%;
@@ -350,8 +319,6 @@ main h1 span {
   margin: 80px 0;
 }
 
-.detail ul.workList {
-}
 .detail ul.workList li {
   display: flex;
   align-items: flex-end;
@@ -367,7 +334,6 @@ main h1 span {
   position: absolute;
   width: 0;
   height: 0;
-  object-fit: cover;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -376,8 +342,6 @@ main h1 span {
   animation: spin 1.5s infinite linear;
   transition: 0.3s;
 }
-
-/* li hover */
 .detail ul.workList li a.workImg:hover img {
   filter: brightness(40%);
 }
@@ -414,22 +378,6 @@ main h1 span {
 .detail ul.workList li .img-box a:hover img {
   transform: scale(1.2);
 }
-
-.detail ul.workList.motion li .img-box {
-  transform: translate3d(0, 0, 0);
-}
-.detail ul.workList.motion li .img-box a {
-  animation: picAni 1.3s;
-}
-@keyframes picAni {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0%;
-    transform: translate3d(0, 70px, 0);
-  }
-}
 .detail ul.workList li .img-box a img {
   width: 100%;
   height: 100%;
@@ -459,8 +407,6 @@ main h1 span {
 .detail ul.workList li .text-box a:hover::after {
   width: 100%;
 }
-
-/* txt-year */
 .detail ul.workList li .text-box a em {
   display: inline-block;
   font-style: normal;
@@ -473,7 +419,6 @@ main h1 span {
   box-sizing: border-box;
   margin-bottom: 2px;
 }
-/* txt-title */
 .detail ul.workList li .text-box a p {
   font-weight: 300;
   font-size: 3rem;
@@ -490,17 +435,12 @@ main h1 span {
 }
 
 @media (max-width: 1000px) {
-  .slick-slider {
-    margin-bottom: 0;
-  }
-  .slick-list {
+  .slider-track .slide-img img {
     height: 400px;
   }
-
   .detail .info-area {
     flex-direction: column;
   }
-
   .detail .info-area .info-traits,
   .detail .info-area .info-desc {
     width: 100%;
@@ -508,7 +448,6 @@ main h1 span {
   .detail .info-area .info-traits {
     margin-bottom: 3rem;
   }
-
   .detail ul.workList li .img-box {
     width: 65%;
     height: 360px;
@@ -520,20 +459,16 @@ main h1 span {
   main h1 {
     font-size: 6rem;
   }
-
   .detail {
     padding: 100px 0;
   }
-
   .detail h4 {
     font-size: 4rem;
   }
-
   .detail ul.workList li {
     flex-direction: column;
     align-items: flex-start;
   }
-
   .detail ul.workList li .img-box,
   .detail ul.workList li .text-box {
     width: 100%;
@@ -543,10 +478,6 @@ main h1 span {
     align-items: center;
     justify-content: center;
   }
-  .detail ul.workList li .text-box a:hover {
-    opacity: 0;
-    display: none;
-  }
   .detail ul.workList li .text-box a em {
     margin-bottom: 0;
     margin-right: 1rem;
@@ -554,16 +485,8 @@ main h1 span {
 }
 
 @media (max-width: 550px) {
-  .slide-img img {
+  .slider-track .slide-img img {
     height: 320px;
-  }
-}
-
-@media (max-width: 500px) {
-  .slick-wrap .slick-arrows span {
-    top: 40%;
-    width: 40px;
-    height: 40px;
   }
 }
 
@@ -574,7 +497,6 @@ main h1 span {
   .detail .url-web a {
     padding: 15px 20px;
   }
-
   .detail ul.workList li .text-box a p {
     font-size: 2.4rem;
   }

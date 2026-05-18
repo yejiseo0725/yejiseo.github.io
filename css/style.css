@@ -14,7 +14,6 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
-  box-sizing: border-box;
 }
 
 /* visual */
@@ -41,7 +40,6 @@ body {
   margin: 0 auto;
   text-align: center;
   line-height: 1.1;
-  /* text-transform: uppercase; */
 }
 .visual h1 span {
   display: flex;
@@ -72,7 +70,7 @@ body {
   object-fit: cover;
 }
 
-/* 초기 진입 애니메이션을 위한 클래스 */
+/* 초기 진입 애니메이션 */
 .visual h1 span b {
   transform: scale(0.2);
   transition: transform 1.5s ease;
@@ -100,7 +98,6 @@ body {
   opacity: 1;
   max-width: 100%;
 }
-
 .visual.animate-in h1 span.title em {
   transition-delay: 0.3s;
 }
@@ -108,7 +105,7 @@ body {
 .img-slider {
   display: inline-block;
   position: relative;
-  width: 200px; /* 원하는 이미지 크기에 맞게 */
+  width: 200px;
   height: 100px;
   object-fit: cover;
   border-radius: 60px;
@@ -119,7 +116,7 @@ body {
 }
 
 .slider-inner {
-  position: relative; /* 기존 absolute → relative */
+  position: relative;
   width: 100%;
   height: 100%;
   transition: transform 0.6s ease;
@@ -135,6 +132,7 @@ body {
   object-fit: cover;
   transition: opacity 0.6s ease;
 }
+
 .visual .visual-text {
   display: flex;
   align-items: center;
@@ -159,7 +157,6 @@ body {
   line-height: 1.5;
   font-size: 0.9rem;
   color: var(--font-color-w);
-
   opacity: 0;
   transform: translateY(70px) skewX(40deg);
   transition: 1.5s ease;
@@ -222,30 +219,9 @@ body {
   overflow: hidden;
 }
 
-.sc1 .inner {
-}
-
 .sc1 .my-pic {
   padding: 200px 0 60px;
   box-sizing: border-box;
-}
-
-/* .motion animation */
-.sc1.motion .inner {
-  transform: translate3d(0, 0, 0);
-}
-.sc1.motion .my-pic {
-  animation: textAni 1.3s;
-}
-
-@keyframes textAni {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0%;
-    transform: translate3d(0, 70px, 0);
-  }
 }
 
 .sc1 .my-pic strong {
@@ -285,10 +261,6 @@ body {
   height: 100%;
 }
 
-/* .motion animation */
-.sc1.motion .my-pic {
-}
-
 .sc1 .my-info {
   margin: 0 auto;
 }
@@ -303,7 +275,6 @@ body {
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 1.7;
-
   -webkit-text-fill-color: rgba(255, 255, 255, 0.1);
   -webkit-background-clip: text;
   background-repeat: no-repeat;
@@ -327,16 +298,33 @@ span.drag-label {
   text-align: center;
   margin-top: 160px;
   margin-bottom: 40px;
-
   opacity: 0;
   transform: translateY(-100px);
+}
+
+/* skill — Draggable 드래그 영역 */
+.skill-drag-wrap {
+  overflow: hidden; /* 카드 넘치는 부분 숨김 */
+  width: 100%;
+  margin-bottom: 100px;
 }
 
 .my-skill {
   position: relative;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 100px;
+  flex-wrap: nowrap;
+  gap: 0 2rem;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+  width: max-content; /* 내용 전체 너비로 확장 */
+}
+.my-skill:active {
+  cursor: grabbing;
+}
+
+.skillSet {
+  flex: 0 0 220px;
 }
 
 .skill-card {
@@ -381,7 +369,6 @@ span.drag-label {
   margin-bottom: 30px;
 }
 .skill-text p {
-  /* text-align: justify; */
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.8;
@@ -395,23 +382,10 @@ span.drag-label {
   height: auto;
 }
 
-.slick-slider {
-}
-
-.slick-arrow,
-.slick-prev,
-.slick-next {
-  display: none !important;
-}
-
+/* accordion — max-height 방식 */
 .accordion {
-  /* max-width: 900px; */
   box-sizing: border-box;
   margin: 80px auto 60px;
-}
-.accordion ul {
-}
-.accordion ul li {
 }
 
 .accordion ul li .acc-title {
@@ -444,7 +418,6 @@ span.drag-label {
   transform: scale(0);
   transition: 0.3s ease;
 }
-
 .accordion ul li .acc-title:hover strong::after {
   opacity: 1;
   transform: scale(1);
@@ -461,20 +434,22 @@ span.drag-label {
   height: 100%;
 }
 
+/* max-height 방식으로 교체 — display:none 제거 */
 .accordion ul li .acc-desc {
-  display: none;
-  padding: 40px 30px;
-  box-sizing: border-box;
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  overflow-x: hidden;
-  max-width: 200%;
+  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  padding: 0 30px;
+  box-sizing: border-box;
   word-break: break-word;
 }
 .accordion ul li .acc-desc.animate-in {
+  max-height: 2000px;
   opacity: 1;
   transform: translateY(0);
+  padding: 40px 30px;
   margin-bottom: 20px;
 }
 
@@ -492,7 +467,6 @@ span.drag-label {
   font-weight: 400;
   color: var(--dark-gray);
 }
-
 .accordion ul li .acc-desc p {
   font-weight: 400;
   font-size: 1.1rem;
@@ -518,7 +492,6 @@ span.drag-label {
   height: 180px;
   border-radius: 50%;
   background-color: var(--main-color);
-
   border: none;
   transform: rotate(-18deg);
   cursor: pointer;
@@ -528,7 +501,6 @@ span.drag-label {
   transform: rotate(-18deg) scale(1.1);
   box-shadow: 5px 5px 12px rgba(0, 20, 41, 0.4);
 }
-
 .resume-btn-area button a {
   font-weight: 600;
   font-size: 1.5rem;
@@ -541,7 +513,6 @@ span.drag-label {
   position: relative;
   display: inline-block;
   color: transparent;
-  /* color: var(--font-color-w); */
   overflow: hidden;
 }
 .resume-btn-area button a .char::before,
@@ -573,8 +544,6 @@ span.drag-label {
   box-sizing: border-box;
   background-color: var(--font-color-w);
   padding: 200px 0 100px;
-}
-.sc2 .inner {
 }
 
 .pj-cat {
@@ -621,7 +590,6 @@ ul.workList li {
 ul.workList li.li-even {
   text-align: end;
 }
-
 ul.workList li a {
   display: inline-block;
   color: var(--font-color-w);
@@ -640,8 +608,6 @@ ul.workList li a.workImg::after {
   animation: spin 1.5s infinite linear;
   transition: 0.3s;
 }
-
-/* li hover */
 ul.workList li a.workImg:hover img {
   filter: brightness(40%);
 }
@@ -675,22 +641,6 @@ ul.workList li .img-box a {
   border-radius: 60px;
   overflow: hidden;
 }
-ul.workList.motion li .img-box {
-  transform: translate3d(0, 0, 0);
-}
-ul.workList.motion li .img-box a {
-  animation: picAni 1.3s;
-}
-@keyframes picAni {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0%;
-    transform: translate3d(0, 70px, 0);
-  }
-}
-
 ul.workList li .img-box a img {
   width: 100%;
   height: 100%;
@@ -724,7 +674,6 @@ ul.workList li .text-box a:hover::after {
   width: 100%;
 }
 
-/* txt-year */
 ul.workList li .text-box a em {
   display: inline-block;
   font-style: normal;
@@ -737,7 +686,6 @@ ul.workList li .text-box a em {
   box-sizing: border-box;
   margin-bottom: 2px;
 }
-/* txt-title */
 ul.workList li .text-box a p {
   font-weight: 300;
   font-size: 3rem;
@@ -771,9 +719,6 @@ ul.workList li .text-box a p {
 ul.workExp {
   margin-bottom: 200px;
 }
-ul.workExp li {
-}
-
 ul.workExp li a {
   display: block;
   margin-bottom: 5px;
@@ -781,7 +726,6 @@ ul.workExp li a {
 ul.workExp li:nth-child(even) {
   text-align: end;
 }
-
 ul.workExp li a h4 {
   font-weight: 500;
   font-size: 6rem;
@@ -795,7 +739,6 @@ ul.workExp li:nth-child(odd):hover h4 {
 ul.workExp li:nth-child(even):hover h4 {
   transform: translateX(-20px);
 }
-
 ul.workExp li a span {
   font-weight: 400;
   font-size: 1.1rem;
@@ -819,7 +762,7 @@ ul.workExp li.active {
 }
 
 .sc2 .imgBox {
-  position: fixed; /* 화면 기준으로 따라다니게 */
+  position: fixed;
   top: 0;
   left: 0;
   width: 400px;
@@ -834,10 +777,6 @@ ul.workExp li.active {
   width: 400px;
   height: 300px;
   object-fit: cover;
-}
-/* 이 구간에서만 img hover scroll 없애기 */
-.wrap.on {
-  overflow: hidden;
 }
 
 .marquee-wrap {
@@ -854,7 +793,6 @@ ul.workExp li.active {
   transform-origin: left center;
   animation: marquee-left 10s linear infinite;
 }
-
 .marquee span {
   font-weight: 500;
   font-size: 3.5rem;
@@ -878,17 +816,14 @@ ul.workExp li.active {
 }
 
 .tagline-wrap {
-  margin-top: 0;
   overflow: hidden;
   white-space: nowrap;
   padding-top: 20px;
 }
-
 .tagline {
   display: inline-block;
   animation: marquee-right 20s linear infinite;
 }
-
 .tagline span {
   background-color: var(--font-color-w);
   border-radius: 50px;
@@ -914,9 +849,6 @@ footer {
   background-color: var(--font-color-w);
   padding: 80px 0 40px;
 }
-footer .inner {
-}
-
 footer h5 {
   font-weight: 700;
   font-size: 6rem;
@@ -924,12 +856,10 @@ footer h5 {
 footer h5 strong {
   display: block;
   line-height: 1.1;
-
   margin: 50px 0;
   transition: all 0.8s ease;
   opacity: 0;
 }
-/* footer h5 active */
 footer h5.active strong {
   margin: 0;
   opacity: 1;
@@ -941,16 +871,12 @@ footer h5.active strong {
   align-items: center;
   margin: 60px 0 40px;
 }
-.touch-wrap .touch {
-}
-
 .touch p {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 20px;
 }
-
 .touch em {
   display: block;
   font-style: normal;
@@ -959,8 +885,6 @@ footer h5.active strong {
   line-height: 1.5;
 }
 
-footer h6 {
-}
 footer h6 a {
   position: relative;
   display: flex;
@@ -979,7 +903,6 @@ footer h6 a::after {
 footer h6 a:hover::after {
   width: 100%;
 }
-
 footer h6 a strong {
   font-size: 4rem;
 }
@@ -990,7 +913,6 @@ footer h6 a img {
   object-fit: cover;
   margin-left: 15px;
 }
-
 footer h6 a:hover img {
   animation: rotate360 1s linear infinite;
 }
@@ -1019,7 +941,6 @@ footer h6 a:hover img {
   height: 100%;
   object-fit: cover;
 }
-
 footer small {
   display: block;
   font-size: 0.9rem;
@@ -1027,25 +948,21 @@ footer small {
   color: var(--font-color);
 }
 
-/* responsive */
+/* ----------------------------------------------------------------
+   responsive
+---------------------------------------------------------------- */
 @media (max-width: 1300px) {
   .inner {
-    box-sizing: border-box;
     overflow: hidden;
   }
-
   header {
     max-width: 100%;
     box-sizing: border-box;
   }
-
   header .inner {
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-  }
-
-  .visual {
   }
   .visual .inner {
     width: 100%;
@@ -1053,7 +970,6 @@ footer small {
     box-sizing: border-box;
     overflow: hidden;
   }
-
   .visual h1 span.title em {
     font-size: 7rem;
   }
@@ -1065,7 +981,6 @@ footer small {
     left: 50%;
     transform: translateX(-50%);
   }
-
   .sc1 .my-pic .my-pic-area {
     width: 200px;
     height: 220px;
@@ -1073,43 +988,30 @@ footer small {
   .sc1 .my-info p {
     font-size: 1.6rem;
   }
-
   span.drag-label {
     opacity: 1;
     transform: translateY(0);
   }
-
   ul.workList li .img-box {
     height: 450px;
   }
   ul.workList li .text-box a p {
     font-size: 2.5rem;
   }
-
   ul.workExp li a h4 {
     font-size: 4.3rem;
   }
 }
 
 @media (max-width: 1000px) {
-  .inner {
-  }
-
-  .visual {
-  }
-  .visual .inner {
-  }
-
   header .inner {
     max-width: 500px;
     margin: 0 auto;
   }
-
   .img-slider {
     width: 150px;
     height: 80px;
   }
-
   .visual h1 span.title em {
     font-size: 6rem;
   }
@@ -1126,18 +1028,11 @@ footer small {
   .visual.animate-in p {
     font-size: 0.8rem;
   }
-
   .sc1 .my-info span {
     font-size: 1.5rem;
   }
-
   ul.workExp li a span {
     opacity: 1;
-  }
-
-  .footer .inner {
-    padding: 0 4rem;
-    box-sizing: border-box;
   }
 }
 
@@ -1151,13 +1046,11 @@ footer small {
   ul.workList li .img-box {
     height: 320px;
   }
-
   .sc2 .imgBox {
     opacity: 0;
     display: none;
     pointer-events: none;
   }
-
   footer h5 {
     font-size: 4.5rem;
   }
@@ -1206,11 +1099,9 @@ footer small {
     width: 110px;
     height: 60px;
   }
-
   .h3-wrap h3 {
     font-size: 4rem;
   }
-
   ul.workList li {
     flex-direction: column;
     align-items: center;
@@ -1220,7 +1111,6 @@ footer small {
     flex-direction: column-reverse;
     align-items: center;
   }
-
   ul.workList li .img-box {
     width: 100%;
     padding: 0;
@@ -1239,7 +1129,6 @@ footer small {
     margin-right: 10px;
     margin-bottom: 0;
   }
-
   ul.workExp li a {
     margin-bottom: 25px;
   }
@@ -1252,18 +1141,15 @@ footer small {
   header .gnb ul li {
     margin-right: 1rem;
   }
-
   ul.workList li .img-box {
     height: 260px;
   }
-
   ul.workExp li a h4 {
     font-size: 2.8rem;
   }
   ul.workExp li a span {
     font-size: 1rem;
   }
-
   footer h5 {
     font-size: 3.6rem;
   }
