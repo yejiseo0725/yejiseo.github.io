@@ -304,9 +304,9 @@ span.drag-label {
 
 /* skill — Draggable 드래그 영역 */
 .skill-drag-wrap {
-  overflow: hidden; /* 카드 넘치는 부분 숨김 */
-  width: 100%;
-  margin-bottom: 100px;
+  overflow: hidden;
+  max-width: 724px;
+  margin: 0 auto 100px;
 }
 
 .my-skill {

@@ -163,8 +163,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".my-skill");
   if (!track) return;
 
-  const CARD_WIDTH = 220; // skillSet flex: 0 0 220px 와 동일
-  const GAP = 32; // gap: 2rem = 32px
+  const CARD_WIDTH = 300;
+  const GAP = 20; // gap: 2rem = 32px
   const VISIBLE = 3; // 한 화면에 보이는 카드 수
 
   const setDraggable = () => {
