@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ----------------------------------------------------------------
-// header 등장 애니메이션
+// header 등장 애니메이션 — 완료 후 GSAP 제어권 해제
 // ----------------------------------------------------------------
 gsap.set("header", { y: -100, opacity: 0 });
 gsap.to("header", {
@@ -79,20 +79,45 @@ gsap.to("header", {
   duration: 1,
   delay: 0.8,
   ease: "power3.out",
+  onComplete: () => {
+    // 애니메이션 완료 후 inline style 제거 → CSS가 완전히 제어
+    gsap.set("header", { clearProps: "all" });
+  },
 });
 
 // ----------------------------------------------------------------
 // white-section 진입 시 header 색상 변경
+// refresh 후에도 현재 스크롤 위치 기준으로 즉시 재판단
 // ----------------------------------------------------------------
+const updateLightHeader = () => {
+  const scrollY = window.scrollY;
+  let isLight = false;
+
+  document.querySelectorAll(".white-section").forEach((section) => {
+    const top = section.getBoundingClientRect().top + scrollY;
+    const bottom = top + section.offsetHeight;
+    const viewH = window.innerHeight;
+
+    // 헤더(상단 10% 지점)가 white-section 안에 있으면 light
+    const triggerY = scrollY + viewH * 0.1;
+    if (triggerY >= top && triggerY <= bottom) {
+      isLight = true;
+    }
+  });
+
+  document.body.classList.toggle("light-header", isLight);
+};
+
 document.querySelectorAll(".white-section").forEach((section) => {
   ScrollTrigger.create({
     trigger: section,
-    start: "top 10%",
+    start: "top 5%",
     end: "bottom 10%",
     onEnter: () => document.body.classList.add("light-header"),
     onEnterBack: () => document.body.classList.add("light-header"),
     onLeave: () => document.body.classList.remove("light-header"),
     onLeaveBack: () => document.body.classList.remove("light-header"),
+    onRefresh: () => updateLightHeader(),
   });
 });
 
@@ -163,8 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".my-skill");
   if (!track) return;
 
-  const CARD_WIDTH = 300;
-  const GAP = 20; // gap: 2rem = 32px
+  const CARD_WIDTH = 270; // skillSet flex: 0 0 270px
+  const GAP = 32; // gap: 0 2rem = 32px
   const VISIBLE = 3; // 한 화면에 보이는 카드 수
 
   const setDraggable = () => {
@@ -219,8 +244,11 @@ document.addEventListener("DOMContentLoaded", () => {
         img.src = "./images/asset/minus.svg";
       }
 
-      // max-height 트랜지션 완료 후 ScrollTrigger 재계산
-      setTimeout(() => ScrollTrigger.refresh(), 450);
+      // max-height 트랜지션 완료 후 ScrollTrigger 재계산 + 헤더 색상 즉시 재판단
+      setTimeout(() => {
+        ScrollTrigger.refresh(true); // true = 동기 실행
+        updateLightHeader(); // refresh 완료 후 즉시 실행
+      }, 450);
     });
   });
 });
