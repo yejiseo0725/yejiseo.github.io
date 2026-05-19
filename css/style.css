@@ -305,7 +305,7 @@ span.drag-label {
 /* skill — Draggable 드래그 영역 */
 .skill-drag-wrap {
   overflow: hidden;
-  max-width: 724px;
+  max-width: 874px;
   margin: 0 auto 100px;
 }
 
@@ -324,7 +324,7 @@ span.drag-label {
 }
 
 .skillSet {
-  flex: 0 0 220px;
+  flex: 0 0 270px;
 }
 
 .skill-card {
@@ -356,8 +356,8 @@ span.drag-label {
 }
 
 .skill-text {
-  width: 70%;
-  margin: 40px auto;
+  width: 100%;
+  margin: 20px auto;
   padding-bottom: 1rem;
   box-sizing: border-box;
 }
