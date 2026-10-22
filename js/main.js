@@ -161,7 +161,7 @@ gsap.fromTo(
       end: "70% 100%",
       scrub: 3,
     },
-  }
+  },
 );
 
 // ----------------------------------------------------------------
@@ -233,6 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 열린 항목 전부 닫기
       document.querySelectorAll(".accordion .acc-desc").forEach((d) => {
         d.classList.remove("animate-in");
+        d.style.maxHeight = "";
       });
       document.querySelectorAll(".accordion .acc-title img").forEach((i) => {
         i.src = "./images/asset/add.svg";
@@ -241,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 클릭한 항목 토글
       if (!isOpen) {
         desc.classList.add("animate-in");
+        desc.style.maxHeight = desc.scrollHeight + "px";
         img.src = "./images/asset/minus.svg";
       }
 
@@ -273,7 +275,7 @@ gsap
       ease: "none",
       duration: 5,
     },
-    0
+    0,
   )
   .to(
     ".pj-cat",
@@ -283,29 +285,29 @@ gsap
       ease: "none",
       duration: 5,
     },
-    0
+    0,
   )
   .to(
     ".pj-cat strong",
     { color: "var(--font-color-w)", ease: "none", duration: 5 },
-    0
+    0,
   )
   .to(
     ".h3-wrap h3 span",
     { color: "var(--font-color-w)", ease: "none", duration: 5 },
-    0
+    0,
   )
   .fromTo(
     ".sc2 h3 .a",
     { x: "-100%" },
     { x: "0%", ease: "none", duration: 5 },
-    0
+    0,
   )
   .fromTo(
     ".sc2 h3 .b",
     { x: "100%" },
     { x: "0%", ease: "none", duration: 5 },
-    0
+    0,
   );
 
 // ----------------------------------------------------------------

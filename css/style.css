@@ -90,7 +90,9 @@ body {
 .visual h1 span.title em {
   transform: scale(0.5) skewX(-20deg);
   opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
+  transition:
+    transform 1s ease,
+    opacity 1s ease;
   transform-origin: center;
 }
 .visual.animate-in h1 span.title em {
@@ -374,7 +376,7 @@ span.drag-label {
   line-height: 1.8;
   padding-bottom: 1rem;
   box-sizing: border-box;
-  height: 140px;
+  min-height: 140px;
 }
 .skill-text p:last-child {
   text-align: justify;
@@ -440,7 +442,10 @@ span.drag-label {
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
-  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.4s ease,
+    transform 0.4s ease;
   padding: 0 30px;
   box-sizing: border-box;
   word-break: break-word;
